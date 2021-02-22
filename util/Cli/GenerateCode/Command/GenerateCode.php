@@ -267,6 +267,27 @@ class GenerateCode extends Console\Command\Command
         $generateComplexTypes = new CodeGenerator\GenerateComplexTypeClasses($exportPath, $wsdlPath, $baseNamespace, $subPackageName);
         $generateComplexTypes->run();
 
+        //UploadDocumentServicev17
+        $wsdlPath = $fedexSrcDir . '/_wsdl/UploadDocumentService_v17.wsdl';
+
+        $baseNamespace = 'FedEx\UploadDocumentServicev17';
+        $subPackageName = 'Upload Document Service';
+
+        //generate Request class
+        $pathToRequestClassFile = $fedexSrcDir . '/UploadDocumentServicev17/Request.php';
+        $generateRequestClassFile = new CodeGenerator\GenerateRequestClass($pathToRequestClassFile, $wsdlPath, $baseNamespace, $subPackageName);
+        $generateRequestClassFile->run();
+
+        //generate SimpleType classes
+        $exportPath = $fedexSrcDir . '/UploadDocumentServicev17/SimpleType';
+        $generateSimpleTypes = new CodeGenerator\GenerateSimpleTypeClasses($exportPath, $wsdlPath, $baseNamespace, $subPackageName);
+        $generateSimpleTypes->run();
+
+        //generate ComplexType classes
+        $exportPath = $fedexSrcDir . '/UploadDocumentServicev17/ComplexType';
+        $generateComplexTypes = new CodeGenerator\GenerateComplexTypeClasses($exportPath, $wsdlPath, $baseNamespace, $subPackageName);
+        $generateComplexTypes->run();
+
         //PickupService
         $wsdlPath = $fedexSrcDir . '/_wsdl/PickupService_v22.wsdl';
 
